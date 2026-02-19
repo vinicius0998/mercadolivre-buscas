@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  mercadolivre-api:
+    container_name: mercadolivre-scraper
+    build: .
+    image: mercadolivre-scraper:latest
+    ports:
+      - "8000:8000"
+    environment:
+      - VERIFY_SSL=true
+    restart: always
+    networks:
+      - ml-net
+
+networks:
+  ml-net:
+    driver: bridge
